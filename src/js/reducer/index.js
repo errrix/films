@@ -1,7 +1,7 @@
 const initialState = {
     data: [],
     totalPage: 0,
-    inputValue : ''
+    inputValue : 'die hard'
 };
 
 const reduser = (state = initialState , action) => {
