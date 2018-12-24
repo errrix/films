@@ -7,4 +7,5 @@ link to the github page : https://errrix.github.io/films/dist/template/
 ---------------------------------------------------------
 
 webpack dev: npm run dev
+--
 webpack build: npm run build
