@@ -1,18 +1,16 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 class CardMovie extends React.Component {
 
     render() {
-        const {id, poster_path, title, release_date, overview ,vote_average} = this.props;
+        const {id, poster_path, title, release_date, overview, vote_average} = this.props;
         return (
             <li key={this.props.id} className={'card-film'}>
-
                 <div className={'image-block'}>
                     <img src={`https://image.tmdb.org/t/p/w200${this.props.poster_path}`} alt=""/>
                 </div>
-
                 <div className={'text-block'}>
                     <div className={'top-block'}>
                         <h2>{this.props.title}</h2>
@@ -27,10 +25,7 @@ class CardMovie extends React.Component {
                         </div>
                         <Link to={`/film${this.props.id}`}>Подробнее о фильме</Link>
                     </div>
-
                 </div>
-
-
             </li>
         )
     }

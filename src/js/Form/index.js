@@ -31,7 +31,6 @@ class Form extends React.Component {
                     <label className="main-input">
                         <input onChange={this.myAdd} type="text" value={inputValueData}/>
                     </label>
-
                 </form>
             </div>
         )

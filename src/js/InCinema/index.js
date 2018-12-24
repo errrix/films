@@ -4,11 +4,9 @@ import CardMovie from "../CardMovie";
 class InCinema extends React.Component {
     constructor() {
         super();
-
         this.state = {
             array: []
         };
-
         fetch(`https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=39a3fe1b6db3dfb1cf6cc4cbc1f0db5e&language=ru-Ru`)
             .then((response) => {
                 return response.json()
@@ -20,11 +18,9 @@ class InCinema extends React.Component {
             })
             .catch(alert);
     }
-
     render() {
         return (
             <div className={'search-results-block'}>
-
                 {
                     ( Array.isArray(this.state.array) && this.state.array.length > 0) ? (
 
@@ -32,7 +28,6 @@ class InCinema extends React.Component {
 
                     ) : false
                 }
-
                 <ul className={'list-wrapper'}>
                     {
                         (this.state.array.map((item, index) => {

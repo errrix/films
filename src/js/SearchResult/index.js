@@ -9,7 +9,6 @@ class SearchResult extends React.Component {
         this.state = {
             showCount: 10
         };
-
         this.HandleScroll = this.HandleScroll.bind(this);
     }
 
