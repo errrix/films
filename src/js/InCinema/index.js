@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import CardMovie from "../CardMovie";
 
 class InCinema extends React.Component {
     constructor() {
@@ -27,13 +27,31 @@ class InCinema extends React.Component {
     render() {
         // const {saveDataAction, totalPageAction, data} = this.props;
         return (
-            <div>
-                <ul>
+            <div className={'search-results-block'}>
+
+                {
+                    ( Array.isArray(this.state.array) && this.state.array.length > 0) ? (
+
+                        <h1>СЕГОДНЯ В КИНО</h1>
+
+                    ) : false
+                }
+
+                <ul className={'list-wrapper'}>
                     {
                         (this.state.array.map((item, index) => {
-                                return <li key={item.id} >{item.id} {item.title}
-                                         <Link to={`/film${item.id}`}>{item.title}</Link>
-                                </li>
+                                return <CardMovie id = {item.id}
+                                               poster_path = {item.poster_path}
+                                               title = {item.title}
+                                               release_date = {item.release_date}
+                                               overview = {item.overview}
+                                               vote_average = {item.vote_average}
+                                    />
+
+
+                                {/*<li key={item.id} >{item.id} {item.title}*/}
+                                         {/*<Link to={`/film${item.id}`}>{item.title}</Link>*/}
+                                {/*</li>*/}
                             })
                         )
                     }

@@ -30,7 +30,7 @@ class WebPage extends React.Component {
 };
 
 const mapStateToProps = (store) => {
-    console.log(store.totalPage)
+    console.log(store.data)
     return {
         data: store.data,
         inputValueData: store.inputValue

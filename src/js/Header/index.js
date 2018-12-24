@@ -6,18 +6,17 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
 
     render() {
-        // const {saveDataAction, totalPageAction, data} = this.props;
         return (
-           <div>
-               <ul>
+           <header className={'header'}>
+               <ul className={'nav-list'}>
                    <li>
-                      <Link to='/'>Search</Link>
+                      <Link to='/'>ПОИСК</Link>
                    </li>
                    <li>
-                      <Link to='/incinema'>Today in Cinema</Link>
+                      <Link to='/incinema'>СЕГОДНЯ В КИНОТЕАТРАХ</Link>
                    </li>
                </ul>
-           </div>
+           </header>
         )
     }
 };

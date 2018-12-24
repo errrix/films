@@ -27,7 +27,8 @@ class Form extends React.Component {
     render() {
         const {inputValueData} = this.props;
         return (
-            <div>
+            <div className={'search-input-block'}>
+                <p>Введите название фильма</p>
                 <form action="">
                     <label className="main-input">
                         <input onChange={this.myAdd} type="text" value={inputValueData}/>

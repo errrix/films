@@ -26,13 +26,29 @@ class DetailMovie extends React.Component {
     render() {
         const {itemId} = this.props;
         return (
-            <div>
-               <h1>{this.state.data.title}</h1>
-                <h2>
-                    {this.state.data.overview}
-                </h2>
-                <p>
-                </p>
+            <div className={'page-film'}>
+                <h2>{this.state.data.title}</h2>
+
+                <div className={'page-film-wrapper'}>
+                    <img src={`https://image.tmdb.org/t/p/w500${this.state.data.poster_path}`} alt=""/>
+
+                    <div className={'right-part'}>
+                        <div>
+                            <h3>Дата выхода - <span> {this.state.data.release_date}</span></h3>
+                            <p>
+                                {this.state.data.overview}
+                            </p>
+                        </div>
+
+                        <div className={'vote'}>
+                            Оценка - {this.state.data.vote_average}
+                        </div>
+                    </div>
+                </div>
+
+                <div className={'janre-films'}>
+                    <h2>Похожие фильмы</h2>
+                </div>
             </div>
         )
     }

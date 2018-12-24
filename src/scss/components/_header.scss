@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  background-color: #F2F1EF;
+  padding: 20px 0;
+
+  .nav-list {
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
+
+
+    li {
+      margin-right: 20px;
+      font-size: 20px;
+
+      a {
+        color: #19B5FE;
+        text-decoration: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+      }
+    }
+  }
+}
