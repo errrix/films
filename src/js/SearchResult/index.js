@@ -20,6 +20,8 @@ class SearchResult extends React.Component {
                     showCount : this.state.showCount + 10
                 });
 
+            } else if ( (this.props.data.data.length <=  this.state.showCount) &&
+                        (+this.props.data.totalPage > +this.props.data.currentPage)) {
                 fetch(`https://api.themoviedb.org/3/search/movie?api_key=39a3fe1b6db3dfb1cf6cc4cbc1f0db5e&query=${this.props.data.inputValue}&language=ru-Ru&page=${+this.props.data.currentPage + 1}`)
                     .then((response) => {
                         return response.json()
@@ -27,6 +29,9 @@ class SearchResult extends React.Component {
                     .then( (response) => {
                         this.props.updateData(response.results);
                         this.props.currentPage(+this.props.data.currentPage + 1);
+                        this.setState({
+                            showCount : this.state.showCount + 10
+                        });
                     })
                     .catch(alert);
             }
