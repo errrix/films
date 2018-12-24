@@ -16,16 +16,12 @@ class InCinema extends React.Component {
             .then((response) => {
                 this.setState({
                     array : response.results
-                })
-                console.log(this.state.array);
+                });
             })
             .catch(alert);
-
-        // this.addArticle = this.addArticle.bind(this);
     }
 
     render() {
-        // const {saveDataAction, totalPageAction, data} = this.props;
         return (
             <div className={'search-results-block'}>
 
@@ -40,18 +36,13 @@ class InCinema extends React.Component {
                 <ul className={'list-wrapper'}>
                     {
                         (this.state.array.map((item, index) => {
-                                return <CardMovie id = {item.id}
+                                return <CardMovie key={item.id} id = {item.id}
                                                poster_path = {item.poster_path}
                                                title = {item.title}
                                                release_date = {item.release_date}
                                                overview = {item.overview}
                                                vote_average = {item.vote_average}
                                     />
-
-
-                                {/*<li key={item.id} >{item.id} {item.title}*/}
-                                         {/*<Link to={`/film${item.id}`}>{item.title}</Link>*/}
-                                {/*</li>*/}
                             })
                         )
                     }

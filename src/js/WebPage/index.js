@@ -1,7 +1,7 @@
 import React from "react";
 import Form from './../Form/'
 import SearchResult from './../SearchResult/'
-import {saveData, totalPage, inputValue} from "../actions";
+import {saveData, totalPage, inputValue, currentPage, updateData} from "../actions";
 import {connect} from "react-redux";
 
 
@@ -13,26 +13,31 @@ class WebPage extends React.Component {
             totalPageAction,
             data,
             inputValueAction,
-            inputValueData
+            inputValueData,
+            currentPageAction,
+            updateDataAction
         } = this.props;
         return (
             <div>
                 <Form saveData={saveDataAction}
                       totalPage={totalPageAction}
                       inputValue={inputValueAction}
+                      currentPage={currentPageAction}
                       inputValueData={inputValueData}
                 />
 
-                <SearchResult data={data}/>
+                <SearchResult data={data}
+                              updateData={updateDataAction}
+                              currentPage={currentPageAction}
+                />
             </div>
         )
     }
 };
 
 const mapStateToProps = (store) => {
-    console.log(store.data)
     return {
-        data: store.data,
+        data: store,
         inputValueData: store.inputValue
     }
 };
@@ -40,7 +45,9 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = dispatch => ({
     saveDataAction: array => dispatch(saveData(array)),
     totalPageAction: pages => dispatch(totalPage(pages)),
-    inputValueAction: pages => dispatch(inputValue(pages))
+    inputValueAction: string => dispatch(inputValue(string)),
+    currentPageAction: page => dispatch(currentPage(page)),
+    updateDataAction: array => dispatch(updateData(array))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WebPage);

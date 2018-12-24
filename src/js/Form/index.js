@@ -3,9 +3,6 @@ import React from "react";
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        };
         this.myAdd = this.myAdd.bind(this);
     }
 
@@ -19,6 +16,7 @@ class Form extends React.Component {
                 .then( (response) => {
                     this.props.saveData(response.results);
                     this.props.totalPage(response.total_pages);
+                    this.props.currentPage(+response.page);
                 })
                 .catch(alert);
         }
