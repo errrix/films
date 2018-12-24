@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer/';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, HashRouter  } from 'react-router-dom';
 
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -20,7 +20,7 @@ import DetailMovie from "./DetailMovie";
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <HashRouter>
             <div>
                 <Route path="/" component={Header} />
                 <Route exact path="/" component={WebPage} />
@@ -31,7 +31,7 @@ ReactDOM.render(
                     }}/>
                 <Route path="/incinema" component={InCinema} />
             </div>
-        </Router>
+        </HashRouter>
     </Provider>,
     document.getElementById('app')
 );
